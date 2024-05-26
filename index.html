@@ -1,0 +1,84 @@
+
+<script>
+    let humanScore = 0;
+    let computerScore = 0;
+    console.log("Hello World")
+
+    function getComputerChoice() {
+        let number = Math.random()
+        if (number < .33) {
+            return "rock";
+        }
+        else if (number<.66) {
+            return "paper";
+        }
+        else return "scissors"
+}
+
+function getHumanChoice() {
+    let answer = prompt("What is your pick?")
+    return answer.toLowerCase();
+}
+function playRound(humanChoice, computerChoice) {
+if (humanChoice === "rock") {
+    if (computerChoice ==="paper") {
+        computerScore++;
+        console.log("You lose! Paper beats Rock") 
+        return;
+    }
+    if (computerChoice==="rock") {
+        console.log("Tied")
+        return
+    }
+    else { 
+        humanScore++;
+        console.log("You win! Rock beats scissors!")
+        return;
+    }
+}
+if (humanChoice === "paper") {
+    if (computerChoice ==="scissors") {
+        computerScore++;
+        console.log("You lose! Scissors beats paper!")
+        return 
+    }
+    if (computerChoice==="paper") {
+        console.log("Tied!")
+        return
+    }
+    else { 
+        humanScore++;
+        console.log("You win! Paper beats rock!")
+        return
+    }
+}
+if (humanChoice === "scissors") {
+    if (computerChoice ==="rock") {
+        computerScore++;
+        console.log("You lose! Rock beats scissors!")
+        return;
+    }
+    if (computerChoice==="scissors") {
+        console.log("Tied!")
+        return
+    }
+    else { humanScore++;
+        console.log("You win! Scissors beats paper!")
+        return
+    }
+}
+}
+function playGame() {
+    playRound(getHumanChoice(), getComputerChoice())
+    playRound(getHumanChoice(), getComputerChoice())
+    playRound(getHumanChoice(), getComputerChoice())
+    playRound(getHumanChoice(), getComputerChoice())
+    playRound(getHumanChoice(), getComputerChoice())
+}
+// let humanSelection = getHumanChoice()
+// let computerSelection = getComputerChoice()
+// playRound(humanSelection, computerSelection)
+playGame()
+
+</script>
+
